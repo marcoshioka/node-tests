@@ -14,10 +14,17 @@ describe('States and cities from Brazil', () => {
 
     strictEqual(request.status, 200)
     const response = await request.json()
-    
+    const responseBody = JSON.stringify(response)
+  
+    assert.match(responseBody, /São Paulo/)
+    assert.match(responseBody, /Rio de Janeiro/)
+    assert.match(responseBody, /Minas Gerais/)
+    assert.match(responseBody, /Espírito Santo/)   
+    assert.doesNotMatch(responseBody, /New York/)
+
   })
 
-  it('Should return error when request for a wrong endpoint - 400', async () => {
+  it('Should return error when request for a wrong endpoint - 404', async () => {
 
     const request = await fetch(`${BASE_URL}/wrong`, {
       method: 'GET',
@@ -25,7 +32,6 @@ describe('States and cities from Brazil', () => {
 
     strictEqual(request.status, 404)
     assert.strictEqual(request.statusText, "Not Found")
-    const response = await JSON.stringify(request.statusText)
     
   })
 
@@ -42,7 +48,6 @@ describe('States and cities from Brazil', () => {
     assert.strictEqual(response[0].sigla, "SP")
     assert.strictEqual(response[0].regiao, "Sudeste")
 
-
   })
 
   it('Should return cities from São Paulo state - 200 ', async () => {
@@ -53,9 +58,12 @@ describe('States and cities from Brazil', () => {
 
     strictEqual(request.status, 200)
     const response = await request.json()
-
+    const responseBody = JSON.stringify(response)
+  
+    assert.match(responseBody, /São Paulo/)
+    assert.doesNotMatch(responseBody, /Salvador/)
     assert.equal(response[0].id, "3500105")
-
+    
   })
 
   it('Should return information about São Paulo city - 200 ', async () => {

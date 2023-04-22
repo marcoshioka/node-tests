@@ -1,0 +1,16 @@
+▶ States and cities from Brazil
+  [32m✔ Should return the list with states from Brazil - 200 [90m(1233.825796ms)[39m[39m
+  [32m✔ Should return error when request for a wrong endpoint - 404 [90m(662.456531ms)[39m[39m
+  [32m✔ Should return information about São Paulo state - 200 [90m(674.128208ms)[39m[39m
+  [32m✔ Should return cities from São Paulo state - 200 [90m(1425.826568ms)[39m[39m
+  [32m✔ Should return information about São Paulo city - 200 [90m(1327.787722ms)[39m[39m
+[32m▶ [39mStates and cities from Brazil [90m(5326.932784ms)[39m
+
+[34mℹ tests 5[39m
+[34mℹ suites 1[39m
+[34mℹ pass 5[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 5476.895126[39m
